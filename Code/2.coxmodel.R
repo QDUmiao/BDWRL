@@ -79,7 +79,6 @@ confint(surroc2, level = 0.95)$CI_AUC
 surroc2$AUC
 
 
-#IBS
 Models <- list("Model1"= coxph(Surv(TIME,Status)~pre1, data=dt_train_pre, x=TRUE, y=TRUE))
 p <- pec(object = Models,formula=Surv(TIME,Status)~pre1, data=dt_train_pre, splitMethod="Boot632plus",
          B=1000,reference = FALSE)
