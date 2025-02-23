@@ -6,9 +6,6 @@ library(circlize)
 data <- read.csv("zongbiaoge1.csv", header = TRUE)
 str(data)
 
-#survdata <- data.frame(row.names = rownames(data), Time = data$Time)  
-#data <- data[, -which(names(data) == "Time")]
-
 data$Cohort<- factor(data$Cohort, levels = c("Train", "Test"))
 data$Status <- factor(data$Status, levels = c("No", "Yes"))
 data$T <- factor(data$T, levels = c("Ta", "T1"))
@@ -77,10 +74,10 @@ ha <- HeatmapAnnotation(
   col = list(
     Cohort = c("Train" = "#3575A2","Test" = "#E1822B"),
     Age = c("<60" = "#EFC99B", "60-70" = "#E8B574", ">70" = "#E19D49"), 
-    T = c("Ta" = "#EDB8B0", "T1" = "#E69191"),  # 设置生存状态的颜色
-    Tis = c("Yes" = "#EDB", "No" = "#E69"),  # 设置生存状态的颜色
-    G = c("G1" = "#CCE4EF", "G2" = "#92B5CA", "G3" = "#599CB4"),  # 设置生存状态的颜色
-    Number = c("1" = "#E6EDB2", "2~7" = "#C5DC89", ">=8" = "#6BBC47"),  # 设置生存状态的颜色
+    T = c("Ta" = "#EDB8B0", "T1" = "#E69191"),  
+    Tis = c("Yes" = "#EDB", "No" = "#E69"),  
+    G = c("G1" = "#CCE4EF", "G2" = "#92B5CA", "G3" = "#599CB4"),  
+    Number = c("1" = "#E6EDB2", "2~7" = "#C5DC89", ">=8" = "#6BBC47"),  
     Shape = c("Cauliflower"="#CCD3E5", "Mounded"="#C2B3D3","Papillary"="#C79DC9"),
     Gender = c("Male" = "#F5D18B", "Female" = "#ECA427"), 
     Size = c("<3" = "#DBDBA7", ">=3" = "#79902D") ,
@@ -100,7 +97,7 @@ ha <- HeatmapAnnotation(
 
 heat<-Heatmap(matrix(nrow=0, ncol=nrow(data)),top_annotation = ha)
 
-#draw(heat, annotation_legend_side = "bottom")
+
 draw(heat,
      heatmap_legend_side = "bottom",
      annotation_legend_side = "bottom", 
