@@ -3,7 +3,7 @@ library(tidyverse)
 library(grid)
 library(circlize)
 
-data <- read.csv("E:/1修/zongbiaoge1.csv", header = TRUE)
+data <- read.csv("zongbiaoge1.csv", header = TRUE)
 str(data)
 
 #survdata <- data.frame(row.names = rownames(data), Time = data$Time)  
